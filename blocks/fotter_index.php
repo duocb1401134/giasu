@@ -7,10 +7,9 @@
                 
                     <div class="col-md-12 footer-grid" style="font-size: 15px;">
                         <p style="font-size: 20px;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
-                            Trung tâm gia sư Quang Trí số 27 đường Quản Trọng Hoàng, phường Hưng Lợi,
-                            quận Ninh Kiều, TPCT. </p>
-                        <p style="font-size: 20px;"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> trangnguyenmc2010@gmail.com</a></p>
-                        <p style="font-size: 20px;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>0919 928 565</p>
+                            Quang Trí Hẻm 51 3/2, Ninh Kiều, Cần Thơ</p>
+                        <p style="font-size: 20px;"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> tanduoc13@gmail.com</a></p>
+                        <p style="font-size: 20px;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 094 88 11 024</p>
                     </div>
                
                 <div class="clearfix"> </div>

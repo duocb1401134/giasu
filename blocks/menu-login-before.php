@@ -3,10 +3,10 @@
         <div class="header-top">
             <div class="container"> 
                 <div class="header-top-left">
-                    <ul>
-                        <li> <h4><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 0919 928 565 </h4></li>
-                        <li><h4>0907 938 565 </h4></li>                        
-                        <li><h4><span class="glyphicon glyphicon-envelope" aria-hidden="true"> Trangnguyenmc2010@gmail.com</span> </h4></li>
+                   <ul>
+                        <li> <h4><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 094 88 11 024 </h4></li>
+                        <li><h4>0909 999 999 </h4></li>                        
+                        <li><h4><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 22px;">tanduoc13@gmail.com</span> </h4></li>
                     </ul>
                 </div>		
                 <div class="clearfix"> </div>

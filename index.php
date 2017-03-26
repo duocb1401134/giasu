@@ -1,13 +1,9 @@
 <?php
 session_start();
-require 'php/dbc.php';
-require 'php/giasu.php';
+require_once 'libs/tutor.php';
+require_once 'libs/recruit.php';
+require_once 'libs/image.php';
 require 'php/menu.php';
-require 'php/code_index.php';
-require 'php/code_danhsachgiasu.php';
-require 'php/code_chitietchieusinh.php';
-require 'php/Top_4.php';
-$p = 1;
 ?>  
 <!--đăng ký theo gia sư-->
 <?php
@@ -213,20 +209,20 @@ if (isset($_GET["dangxuat"])) {
             <div class="about-grids">
                 <p class="delectus">Chúng tôi là một đội ngũ gia sư chuyên nghiệp đã qua đào tạo và kiểm tra nghiêm khắc trước khi nhận dạy</p>
                 <?php
-                $bon_GS = Top4_GS();
-                while ($row_bon_GS = mysql_fetch_array($bon_GS)) {
+                $tutor = new Tutor();                
+                foreach($tutor->select_four_tutor() as $row) {
                     ?>
                     <div class="col-md-3 about-grid">
-                        <a href="CT_GS.php?q=<?php echo $row_bon_GS['ID_GS']; ?>">
+                        <a href="CT_GS.php?q=<?php echo $row['ID_GS']; ?>">
                             <figure>
                                 <img src="<?php
-                                $avt = Hienhinh($row_bon_GS['ID_IMG']);
-                                $row_avt = mysql_fetch_array($avt);
-                                echo $row_avt["NAME_IMG"];
+                                $image = new Image();
+                                $row_img =$image->select_once($row['ID_IMG']);
+                                echo $row_img["NAME_IMG"];
                                 ?>" alt="" class="img-responsive"/>
                                 <figcaption>
-                                    <h4><?php echo $row_bon_GS['TEN_GS']; ?></h4>
-                                    <p> <?php echo $row_bon_GS['GIOITHIEU_GS']; ?></p> 
+                                    <h4><?php echo $row['TEN_GS']; ?></h4>
+                                    <p> <?php echo $row['GIOITHIEU_GS']; ?></p> 
                                 </figcaption>
                             </figure>
                         </a>
@@ -246,27 +242,31 @@ if (isset($_GET["dangxuat"])) {
         <div class="events">
             <div class="container">
                 <h3><span>Chiêu Sinh</span></h3>
-                <p class="autem">Các khoá học mới dang mở ở trung tâm</p>
+                <p class="autem">Các khoá học mới đang mở ở trung tâm</p>
                 <div class="events-grids">
                     <?php
-                    $Chieusinh_top3 = Chieusinh_top3();
-                    while ($row_Chieusinh_top3 = mysql_fetch_array($Chieusinh_top3)) {
+                    $_recruit = new Recruit();                   
+                    foreach ($_recruit->select_three_recruit() as $row){
                         ?>
                         <div class="col-md-4 events-grid">
                             <div class="events-grid1 hvr-sweep-to-top">
-                                <a href="chitietchieusinh.php?q=<?php echo $row_Chieusinh_top3['ID_CHIEUSINH'] ?>">
-                                    <img width="300px" height="auto" src="<?php
-                                    $Hienhinh = Hienhinh($row_Chieusinh_top3['ID_IMG']);
-                                    $row_Hienhinh = mysql_fetch_array($Hienhinh);
-                                    echo $row_Hienhinh["NAME_IMG"];
-                                    ?>" alt= "" class="img-responsive"/></a>
-                                <h4><a href="chitietchieusinh.php?q="><?php
-                                        echo $row_Chieusinh_top3['TEN_CHIEUSINH'];
-                                        ?></a></h4>
+                                <a href="chitietchieusinh.php?q=<?php echo $row["ID_CHIEUSINH"] ?>">
+                                    <img width="300px" height="auto" src="
+                                        <?php
+                                           $image = new Image();
+                                           $img_row = $image->select_once($row["ID_IMG"]);                                          
+                                           echo $img_row["NAME_IMG"];
+                                        ?>"
+                                        alt= "<?php echo $img_name['MOTA']; ?>" class="img-responsive"/>
+                                </a>
+                                <h4>
+                                    <a href="chitietchieusinh.php?q="><?php echo $row['TEN_CHIEUSINH'];?>
+                                    </a>
+                                </h4>
                                 <ul>
-                                    <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"><?php echo $row_Chieusinh_top3['NGAYMO_CHIEUSINH'] ?></span></li>
+                                    <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"><?php echo $row['NGAYMO_CHIEUSINH'] ?></span></li>
                                 </ul>
-                                <p><?php echo $row_Chieusinh_top3['MOTA_CHIEUSINH']; ?></p>
+                                <p><?php echo $row['MOTA_CHIEUSINH']; ?></p>
                             </div>
                         </div>
                         <?php
